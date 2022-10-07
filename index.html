@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.8.17/jquery-ui.min.js"></script>
+    <script src="jquery.ui.touch-punch.min.js"></script>
+
+    <title>Document</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        height: 30px;
+      }
+
+      .options {
+        width: 100%;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        min-height: 30px;
+      }
+      .optionElement {
+        min-height: 30px;
+        min-width: 50px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+      }
+      .tdStylesForDrop{
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>hello orc</h1>
+  </body>
+  <script>
+    let data = {
+      status: true,
+      question_no: 1,
+      total: 10,
+      question_data: [
+        {
+          question_id: 74776,
+          operation: null,
+          question_text:
+            '\u003cp\u003e\u003cstrong\u003e\u003cspan style="color:#E6E6FA;"\u003e\u003cspan style="background-color:#22607A;"\u003eSelect\u003c/span\u003e\u003c/span\u003e\u0026nbsp;the correct options and then\u0026nbsp;\u003cspan style="background-color:#AFEEEE;"\u003edrag and drop\u003c/span\u003e\u0026nbsp;the matching number.\u003c/strong\u003e\u0026nbsp;\u003c/p\u003e\r\n',
+          question_type: "orc",
+          upload_file_name: "",
+          level: "level1",
+          fib_text: null,
+          fib_before_text: null,
+          after_question_text: "",
+          choice_data: [],
+          orc_oprc_data: [
+            {
+              rows: null,
+              columns: null,
+              row_headers: "",
+              column_headers: [
+                '\u003cimg alt="" src="https://www.begalileo.com/system/ckeditor_assets/attachments/2438/i_mat0203_q102.png" style="width: 107px; height: 150px;"\u003e\u0026nbsp;⇒ \u003cselect name="g" required="required"\u003e\u003coption value=""\u003eSelect\u003c/option\u003e\u003coption value="2"\u003e2\u003c/option\u003e\u003coption value="4"\u003e4\u003c/option\u003e\u003coption value="8"\u003e8\u003c/option\u003e\u003coption selected="selected" value="3"\u003e3\u003c/option\u003e\u003coption value="5"\u003e5\u003c/option\u003e\u003coption value="6"\u003e6\u003c/option\u003e\u003coption value="7"\u003e7\u003c/option\u003e\u003c/select\u003e\u0026nbsp;\u003cstrong\u003e\u003cspan style="background-color:#FF8C00;"\u003etens\u003c/span\u003e\u003c/strong\u003e \u003cselect name="ga" required="required"\u003e\u003coption value=""\u003eSelect\u003c/option\u003e\u003coption value="2"\u003e2\u003c/option\u003e\u003coption value="4"\u003e4\u003c/option\u003e\u003coption value="8"\u003e8\u003c/option\u003e\u003coption value="3"\u003e3\u003c/option\u003e\u003coption value="5"\u003e5\u003c/option\u003e\u003coption value="6"\u003e6\u003c/option\u003e\u003coption selected="selected" value="7"\u003e7\u003c/option\u003e\u003c/select\u003e\u0026nbsp;\u003cstrong\u003e\u003cspan style="background-color:#FF8C00;"\u003eones\u003c/span\u003e\u003c/strong\u003e',
+                '\u003cimg alt="" src="https://www.begalileo.com/system/ckeditor_assets/attachments/2445/i_mat0203_q103_optb.png" style="width: 116px; height: 150px;"\u003e\u0026nbsp;⇒ \u003cselect name="g12" required="required"\u003e\u003coption value=""\u003eSelect\u003c/option\u003e\u003coption value="2"\u003e2\u003c/option\u003e\u003coption value="4"\u003e4\u003c/option\u003e\u003coption value="8"\u003e8\u003c/option\u003e\u003coption value="3"\u003e3\u003c/option\u003e\u003coption selected="selected" value="5"\u003e5\u003c/option\u003e\u003coption value="6"\u003e6\u003c/option\u003e\u003coption value="7"\u003e7\u003c/option\u003e\u003c/select\u003e\u0026nbsp;\u003cstrong\u003e\u003cspan style="background-color:#FF8C00;"\u003etens\u003c/span\u003e\u003c/strong\u003e \u003cselect name="ga8" required="required"\u003e\u003coption value=""\u003eSelect\u003c/option\u003e\u003coption value="2"\u003e2\u003c/option\u003e\u003coption value="4"\u003e4\u003c/option\u003e\u003coption selected="selected" value="8"\u003e8\u003c/option\u003e\u003coption value="3"\u003e3\u003c/option\u003e\u003coption value="5"\u003e5\u003c/option\u003e\u003coption value="6"\u003e6\u003c/option\u003e\u003coption value="7"\u003e7\u003c/option\u003e\u003c/select\u003e\u0026nbsp;\u003cstrong\u003e\u003cspan style="background-color:#FF8C00;"\u003eones\u003c/span\u003e\u003c/strong\u003e',
+              ],
+              response: [["37"], ["58"]],
+              extra_options: ["73", "85", "35", "59"],
+            },
+          ],
+          ol_data: [],
+        },
+      ],
+      lice_class_id: 4,
+      tag_id: 123,
+      level: "level1",
+      live_class_practice_id: null,
+      message: "Quiz started successfully",
+    };
+    // var doc = new DOMParser().parseFromString(checkData, "text/html");
+    // document.getElementById("main").innerHTML = doc.body.innerHTML;
+    
+
+    const orcData = data.question_data[0].orc_oprc_data[0];
+    let colHeaders = orcData.column_headers;
+
+    function allowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      if(options.includes(ev.target.id)){
+        ev.target.parentNode.appendChild(document.getElementById(data));
+      }else{
+        ev.target.appendChild(document.getElementById(data));
+      } 
+      
+    }
+
+
+    let options = orcData.extra_options;
+
+    for (let i = 0; i < orcData.response.length; i++) {
+        for(let j=0;j<orcData.response[i].length;j++){
+            options.push(orcData.response[i][j]);
+        } 
+    }
+
+    function shuffle(array) {
+      let currentIndex = array.length,
+        randomIndex;
+
+      // While there remain elements to shuffle.
+      while (currentIndex != 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex],
+          array[currentIndex],
+        ];
+      }
+
+      return array;
+    }
+
+    shuffle(options);
+
+    function generateTable() {
+      // creates a <table> element and a <tbody> element
+      const tbl = document.createElement("table");
+      const tblBody = document.createElement("tbody");
+
+      // creating all cells
+      for (let i = 0; i < 2; i++) {
+        // creates a table row
+        const row = document.createElement("tr");
+
+        for (let j = 0; j < colHeaders.length; j++) {
+
+          const cell = document.createElement("td");
+          cell.id = `td_${i}_${j}`
+         
+          
+          let cellText;
+          if (i == 0) {
+            cellText = document.createElement("div");
+            cellText.id = `div_${i}_${j}`;
+            cellText.innerHTML = colHeaders[j];
+            cell.appendChild(cellText);
+          } else{
+            cell.style = cell.className + "tdStylesForDrop"
+            cell.ondrop = function (event) {
+              drop(event);
+            };
+            cell.ondragover = function (event) {
+              allowDrop(event);
+            };
+            cell.ondragstart = function (event) {
+              drag(event);
+            };
+          }
+
+          row.appendChild(cell);
+        }
+
+        // add the row to the end of the table body
+        tblBody.appendChild(row);
+      }
+
+      // put the <tbody> in the <table>
+      tbl.appendChild(tblBody);
+      // appends <table> into <body>
+      document.body.appendChild(tbl);
+      // sets the border attribute of tbl to '2'
+      tbl.setAttribute("border", "2");
+        generateOptions();
+    }
+
+    function generateOptions() {
+      let optionsContainer = document.createElement("div");
+      optionsContainer.className = "options";
+      optionsContainer.id = "optionsdrop";
+      optionsContainer.ondrop = function (event) {
+        drop(event);
+      };
+      optionsContainer.ondragover = function (event) {
+        allowDrop(event);
+      };
+      optionsContainer.ondragstart = function (event) {
+        drag(event);
+      };
+
+      document.body.appendChild(optionsContainer);
+
+      for (let i = 0; i < options.length; i++) {
+        let optionElement = document.createElement("div");
+        optionElement.className = "optionElement";
+        optionElement.id = options[i];
+        optionElement.innerHTML = options[i];
+        optionElement.setAttribute("draggable", "true");
+        optionsContainer.appendChild(optionElement);
+      }
+
+    }
+  
+  
+    generateTable();
+    
+  </script>
+</html>
